@@ -23,6 +23,15 @@ get_header();
 			while ( have_posts() ) :
 				the_post();
 				get_template_part( 'template-parts/content', 'page' );
+
+				$movie_director = get_post_meta( get_the_ID(), 'dir_id', true);
+				$movie_producer = get_post_meta( get_the_ID(), 'producer_id', true);
+			
+				if( ! empty( $movie_director ) ) {
+					echo '<h3>Director: ' . $movie_director . '<h3>';
+					echo '<p>PRODUCED BY: ' . $movie_producer . '</p>';
+				}
+				
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();
@@ -30,6 +39,21 @@ get_header();
 			endwhile; // End of the loop.
 			?>
 		</div> 
+		<!-- Let's show our custom fields here -->						
+ 
+		<?php 
+		
+			// $movie_director = get_post_meta( get_the_ID(), 'dir_id', true);
+			// $movie_producer = get_post_meta( get_the_ID(), 'producer_id', true);
+		
+			// if( ! empty( $movie_director ) ) {
+			// 	echo '<h3>Director: ' . $movie_director . '<h3>';
+			// 	echo '<p>PRODUCED BY: ' . $movie_producer . '</p>';
+			// }
+		
+		?>
+ 
+		<!-- End showing our custom fields here -->
 
 	</main><!-- #main -->
 

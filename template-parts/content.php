@@ -31,6 +31,21 @@
 
 	<?php cotodi_post_thumbnail(); ?>
 
+	<?php 
+		
+		$movie_director = get_post_meta( get_the_ID(), 'dir_id', true);
+		$movie_producer = get_post_meta( get_the_ID(), 'producer_id', true);
+		$movie_pg = get_post_meta( get_the_ID(), 'pg_status_radio', true);
+	
+		if( ! empty( $movie_director ) ) {
+			echo '<h3>Director: ' . $movie_director . '<h3>';
+			echo '<p>PRODUCED BY: ' . $movie_producer . '</p>';
+			echo '<small>Parental guidance: ' . $movie_pg . '</small>';
+		}
+	
+	?>
+ 
+
 	<div class="entry-content">
 		<?php
 		the_content(

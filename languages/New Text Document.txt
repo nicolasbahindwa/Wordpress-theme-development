@@ -1,0 +1,20 @@
+texi management :
+
+
+= users
+
+=  cars
+
+
+= expenses
+
+
+= incomes
+
+
+= drivers
+
+= bank balance history
+
+
+= 
